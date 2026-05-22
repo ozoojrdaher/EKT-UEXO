@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UEXO x Ektifaa Network Hierarchy</title>
+  <style>
+    body{margin:0;font-family:Arial, sans-serif;background:#f5f6fa;color:#1f2937}
+    .header{margin:30px auto 20px;max-width:1300px;background:white;border-radius:24px;padding:24px;box-shadow:0 5px 20px rgba(0,0,0,.06)}
+    .header h1{margin:0;font-size:30px}.header p{color:#6b7280}
+    .board{max-width:1500px;margin:0 auto 40px;background:white;border-radius:24px;padding:40px;overflow:auto;box-shadow:0 5px 20px rgba(0,0,0,.06)}
+    .tree{min-width:1250px;text-align:center}
+    .node{display:inline-block;border-radius:18px;padding:16px 24px;min-width:180px;box-shadow:0 4px 12px rgba(0,0,0,.08);border:1px solid #ddd;background:#fff}
+    .uexo{background:#dbeafe;border-color:#93c5fd}.ekt{background:#f3e8ff;border-color:#d8b4fe}.mib{background:#dcfce7;border-color:#86efac}.ib{background:#ffedd5;border-color:#fdba74}.sub{background:#e0f2fe;border-color:#7dd3fc}
+    .title{font-weight:700;font-size:18px}.subt{font-size:13px;color:#6b7280;margin-top:5px}
+    .line{height:45px;width:2px;background:#9ca3af;margin:0 auto}
+    .children{display:flex;justify-content:center;gap:70px;border-top:2px solid #9ca3af;padding-top:35px;margin-top:35px}
+    .branch{display:flex;flex-direction:column;align-items:center}
+    button{margin-top:12px;border:1px solid #d1d5db;background:white;border-radius:12px;padding:9px 14px;cursor:pointer;font-weight:600}
+    button:hover{background:#f9fafb}
+    .details{margin-top:18px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:20px;padding:18px;width:360px;text-align:left}
+    input,select{width:100%;box-sizing:border-box;margin:7px 0;border:1px solid #d1d5db;border-radius:12px;padding:11px;font-size:14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .submit{background:#111827;color:white;width:100%;padding:12px;border:0}
+    .card{margin-top:20px;text-align:left;width:260px}
+    .small{font-size:13px;line-height:1.8;color:#374151;margin-top:10px}
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>UEXO x Ektifaa Network Hierarchy</h1>
+    <p>Simple visual prototype for MIB / IB / Sub-IB structure and rebate split requests.</p>
+  </div>
+
+  <div class="board">
+    <div class="tree">
+      <div class="node uexo"><div class="title">UEXO</div><div class="subt">Ops Approval Layer</div></div>
+      <div class="line"></div>
+      <div class="node ekt"><div class="title">Ektifaa HQ</div><div class="subt">Premium Master Partner</div></div>
+
+      <div class="children">
+        <div class="branch">
+          <div class="node mib">
+            <div class="title">Al Hindi</div>
+            <div class="subt">Master IB</div>
+            <button onclick="toggleForm('alhindi')">+ Add IB / Sub IB</button>
+          </div>
+          <div id="alhindi" class="details" style="display:none">
+            <strong>New IB / Sub IB Request</strong>
+            <input placeholder="Full Name">
+            <input placeholder="Email">
+            <input placeholder="MT5 Account Number">
+            <select>
+              <option>Select Group</option>
+              <option>Group A - $10</option>
+              <option>Group B - $20</option>
+              <option>Group C - $25</option>
+              <option>Group D - $30</option>
+            </select>
+            <div class="grid">
+              <input placeholder="Master Split">
+              <input placeholder="Sub IB Split">
+            </div>
+            <button class="submit">Submit to UEXO Ops</button>
+          </div>
+
+          <div class="line"></div>
+          <div class="children" style="gap:25px;margin-top:0">
+            <div class="node ib card">
+              <div class="title">IB Alpha</div>
+              <div class="subt">Group B - $20</div>
+              <div class="small">Email: alpha@ib.com<br>Account: 102938<br>Master Split: $10<br>Sub IB Split: $10</div>
+            </div>
+            <div class="node ib card">
+              <div class="title">IB Beta</div>
+              <div class="subt">Group D - $30</div>
+              <div class="small">Email: beta@ib.com<br>Account: 556677<br>Master Split: $15<br>Sub IB Split: $15</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch">
+          <div class="node mib">
+            <div class="title">Sarwat</div>
+            <div class="subt">Master IB</div>
+            <button onclick="toggleForm('sarwat')">+ Add IB / Sub IB</button>
+          </div>
+          <div id="sarwat" class="details">
+            <strong>New IB / Sub IB Request</strong>
+            <input placeholder="Full Name">
+            <input placeholder="Email">
+            <input placeholder="MT5 Account Number">
+            <select>
+              <option>Select Group</option>
+              <option>Group A - $10</option>
+              <option>Group B - $20</option>
+              <option>Group C - $25</option>
+              <option>Group D - $30</option>
+            </select>
+            <div class="grid">
+              <input placeholder="Master Split">
+              <input placeholder="Sub IB Split">
+            </div>
+            <button class="submit">Submit to UEXO Ops</button>
+          </div>
+
+          <div class="line"></div>
+          <div class="children" style="gap:25px;margin-top:0">
+            <div class="node sub card">
+              <div class="title">Sub IB 1</div>
+              <div class="subt">Group A - $10</div>
+              <div class="small">Email: sub1@ib.com<br>Account: 778899<br>Master Split: $4<br>Sub IB Split: $6</div>
+            </div>
+            <div class="node sub card">
+              <div class="title">Sub IB 2</div>
+              <div class="subt">Group C - $25</div>
+              <div class="small">Email: sub2@ib.com<br>Account: 998877<br>Master Split: $10<br>Sub IB Split: $15</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+function toggleForm(id){
+  var el=document.getElementById(id);
+  el.style.display = el.style.display === "none" ? "block" : "none";
+}
+</script>
+</body>
+</html>
